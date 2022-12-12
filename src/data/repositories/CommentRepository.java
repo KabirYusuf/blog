@@ -9,7 +9,7 @@ public interface CommentRepository {
     Comment save(Comment comment);
     Comment findById(int id);
 
-    List<Comment> findAll(int postId);
+    List<Comment> findAll();
     long count();
     void delete(Comment comment);
     void delete(int id);
