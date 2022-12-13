@@ -1,6 +1,9 @@
 package services;
 
-import dtos.requests.CreatePostRequest;
+import africa.semicolon.blog.data.models.Post;
+import africa.semicolon.blog.dtos.requests.CreatePostRequest;
+import africa.semicolon.blog.services.PostService;
+import africa.semicolon.blog.services.PostServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,5 +23,15 @@ private CreatePostRequest createPostRequest;
         createPostRequest.setTitle("New Post");
         postService.createPost(createPostRequest);
         assertEquals(1, postService.viewAll().size());
+    }
+    @Test
+    public void viewPostTest(){
+        createPostRequest.setBody("Egusi is my best soup");
+        createPostRequest.setTitle("New Post");
+        postService.createPost(createPostRequest);
+        assertEquals(1, postService.viewAll().size());
+        Post post = postService.viewPost(1);
+        assertEquals("Egusi is my best soup", post.getBody());
+        assertEquals("New Post", post.getTitle());
     }
 }

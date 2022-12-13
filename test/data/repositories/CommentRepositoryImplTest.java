@@ -1,6 +1,8 @@
 package data.repositories;
 
-import data.models.Comment;
+import africa.semicolon.blog.data.models.Comment;
+import africa.semicolon.blog.data.repositories.CommentRepository;
+import africa.semicolon.blog.data.repositories.CommentRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

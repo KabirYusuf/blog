@@ -1,6 +1,8 @@
 package data.repositories;
 
-import data.models.Post;
+import africa.semicolon.blog.data.models.Post;
+import africa.semicolon.blog.data.repositories.PostRepository;
+import africa.semicolon.blog.data.repositories.PostRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -86,7 +88,7 @@ public class PostRepositoryImplTest {
     }
 
     @Test
-    public void findElementByIdTest(){
+    public void findPostByIdTest(){
         Post post = new Post();
         post.setBody("our post body");
         post.setTitle("our post title");
