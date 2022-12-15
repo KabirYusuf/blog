@@ -2,8 +2,10 @@ package africa.semicolon.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
+@EnableMongoRepositories
 public class Main {
 //    private static final PostController postController = new PostController();
 //    private static final Scanner scanner = new Scanner(System.in);

@@ -3,6 +3,7 @@ package data.repositories;
 import africa.semicolon.blog.data.models.Comment;
 import africa.semicolon.blog.data.repositories.CommentRepository;
 import africa.semicolon.blog.data.repositories.CommentRepositoryImpl;
+import africa.semicolon.blog.dtos.requests.CreateCommentRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +22,11 @@ private CommentRepository commentRepository;
         comment.setComment("My name is Kabir");
         commentRepository.save(comment);
         assertEquals(1L, commentRepository.count());
+
+//        CreateCommentRequest createCommentRequest = new CreateCommentRequest();
+//        createCommentRequest.setCommenterName("Kabir");
+//        createCommentRequest.setComment("My name is kabir");
+//        commentRepository.save(createCommentRequest);
     }
 
     @Test
@@ -82,5 +88,20 @@ private CommentRepository commentRepository;
         commentRepository.save(commentTwo);
 
         assertEquals(2, commentRepository.findAll().size());
+    }
+
+    @Test
+    public void testThatIfTwoCommentsAreSaved_SizeOfDbIsTwo(){
+        Comment comment = new Comment();
+        comment.setCommenterName("Kabir");
+        comment.setComment("My name is Kabir");
+        commentRepository.save(comment);
+
+        Comment commentTwo = new Comment();
+        commentTwo.setCommenterName("Kabir");
+        commentTwo.setComment("My name is Kabir");
+        commentRepository.save(commentTwo);
+
+        assertEquals(2, commentRepository.viewAll().size());
     }
 }
